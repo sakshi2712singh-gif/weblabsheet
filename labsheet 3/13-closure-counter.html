@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure Counter</title>
+</head>
+<body>
+    <h1>Private Counter with a Closure</h1>
+    <p id="count" aria-live="polite">0</p>
+    <button id="increment" type="button">Increment</button>
+    <button id="decrement" type="button">Decrement</button>
+    <script>
+        function createCounter() {
+            let count = 0;
+            return {
+                increment() { return ++count; },
+                decrement() { return --count; }
+            };
+        }
+        const counter = createCounter();
+        document.querySelector("#increment").addEventListener("click", () => {
+            document.querySelector("#count").textContent = counter.increment();
+        });
+        document.querySelector("#decrement").addEventListener("click", () => {
+            document.querySelector("#count").textContent = counter.decrement();
+        });
+    </script>
+</body>
+</html>

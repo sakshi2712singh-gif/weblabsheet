@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 Syntax Examples</title>
+</head>
+<body>
+    <h1>Arrow Functions, Template Literals, and Destructuring</h1>
+    <p id="result"></p>
+    <script>
+        const student = { name: "Ravi", subject: "JavaScript", marks: 91 };
+        const { name, subject, marks } = student;
+        const formatStudent = ({ name, subject, marks }) => `${name} scored ${marks} in ${subject}.`;
+        document.querySelector("#result").textContent = formatStudent({ name, subject, marks });
+    </script>
+</body>
+</html>

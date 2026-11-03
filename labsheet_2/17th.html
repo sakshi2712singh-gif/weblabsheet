@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hidden Form Values</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;padding:40px 16px;background:#edf3f1;color:#21383a;font:15px/1.5 "Segoe UI",sans-serif}main{max-width:560px;margin:auto;padding:30px;background:white;border-radius:8px}h1{margin:0;color:#17685e;font:600 30px Georgia,serif}p{color:#607672}label{display:block;margin:16px 0 6px;font-weight:700}input:not([type=hidden]){width:100%;padding:11px;border:1px solid #bdcbc5;border-radius:4px;font:inherit}button{margin-top:18px;padding:11px 18px;border:0;border-radius:4px;background:#17685e;color:white;font-weight:700}.notice{padding:12px;border-left:3px solid #d17848;background:#fff5ec;color:#68432f;font-size:14px}
+  </style>
+</head>
+<body>
+  <main><h1>Continue your application</h1><p>A non-sensitive workflow reference is included as a hidden field.</p><p class="notice"><strong>Security note:</strong> Hidden inputs are visible and editable in the browser. Never put passwords, session tokens, or trusted authorization data in them. Validate submitted values on the server.</p><form action="#" method="post"><input type="hidden" name="workflow-reference" value="application-review"><label for="applicant-email">Email address</label><input id="applicant-email" name="email" type="email" required><button type="submit">Continue</button></form></main>
+</body>
+</html>

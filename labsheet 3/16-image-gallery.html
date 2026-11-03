@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery Slider</title>
+    <style>
+        body { max-width: 760px; margin: 32px auto; padding: 0 16px; font-family: Arial, sans-serif; }
+        figure { margin: 0; }
+        img { display: block; width: 100%; height: min(58vh, 440px); object-fit: cover; background: #e8ecef; }
+        figcaption { padding: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>Image Gallery</h1>
+    <figure>
+        <img id="photo" src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80" alt="Mountain lake">
+        <figcaption id="caption">Mountain lake</figcaption>
+    </figure>
+    <button id="previous" type="button">Previous</button>
+    <button id="next" type="button">Next</button>
+    <script>
+        const images = [
+            { src: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80", alt: "Mountain lake" },
+            { src: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80", alt: "Green valley" },
+            { src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80", alt: "Ocean shore" }
+        ];
+        let currentIndex = 0;
+        function showImage() {
+            document.querySelector("#photo").src = images[currentIndex].src;
+            document.querySelector("#photo").alt = images[currentIndex].alt;
+            document.querySelector("#caption").textContent = `${images[currentIndex].alt} (${currentIndex + 1}/${images.length})`;
+        }
+        document.querySelector("#previous").addEventListener("click", () => { currentIndex = (currentIndex - 1 + images.length) % images.length; showImage(); });
+        document.querySelector("#next").addEventListener("click", () => { currentIndex = (currentIndex + 1) % images.length; showImage(); });
+        showImage();
+    </script>
+</body>
+</html>

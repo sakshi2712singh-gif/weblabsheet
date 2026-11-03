@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse and Palindrome</title>
+</head>
+<body>
+    <h1>Reverse a String and Check Palindrome</h1>
+    <label for="text">Enter a word or phrase:</label>
+    <input id="text" type="text" value="Never odd or even" size="32">
+    <button id="check" type="button">Check</button>
+    <p id="result" aria-live="polite"></p>
+    <script>
+        function inspectString(text) {
+            const reversed = [...text].reverse().join("");
+            const normalized = text.toLowerCase().replace(/[^a-z0-9]/g, "");
+            return { reversed, palindrome: normalized === [...normalized].reverse().join("") };
+        }
+        document.querySelector("#check").addEventListener("click", () => {
+            const { reversed, palindrome } = inspectString(document.querySelector("#text").value);
+            document.querySelector("#result").textContent = `Reversed: ${reversed}\n${palindrome ? "It is" : "It is not"} a palindrome.`;
+        });
+    </script>
+</body>
+</html>

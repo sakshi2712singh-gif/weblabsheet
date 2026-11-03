@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Evaluation</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;padding:36px 16px;background:#f2f4ef;color:#233b3d;font:15px/1.5 "Segoe UI",sans-serif}main{max-width:700px;margin:auto;padding:30px;background:#fff;border-radius:8px}h1{margin:0;color:#17685e;font:600 30px Georgia,serif}.field{margin:18px 0}.field::after{display:block;clear:both;content:""}.field label{float:left;width:34%;padding:10px 14px 0 0;font-weight:700}.field input,.field select,.field textarea{float:right;width:66%;padding:10px;border:1px solid #bdcbc5;border-radius:4px;font:inherit}.field textarea{min-height:100px}button{margin-left:34%;padding:11px 18px;border:0;border-radius:4px;background:#17685e;color:white;font-weight:700}@media(max-width:560px){.field label,.field input,.field select,.field textarea{float:none;width:100%}.field label{display:block;padding:0 0 6px}button{margin-left:0}}
+  </style>
+</head>
+<body>
+  <main><h1>Employee evaluation</h1><form action="#" method="get"><div class="field"><label for="employee-name">Employee name</label><input id="employee-name" name="name" required></div><div class="field"><label for="job-title">Role</label><input id="job-title" name="role"></div><div class="field"><label for="performance">Performance</label><select id="performance" name="performance"><option>Exceeds expectations</option><option>Meets expectations</option><option>Needs support</option></select></div><div class="field"><label for="evaluation-notes">Notes</label><textarea id="evaluation-notes" name="notes"></textarea></div><button type="submit">Save evaluation</button></form></main>
+</body>
+</html>

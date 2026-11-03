@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Exception Handling</title>
+</head>
+<body>
+    <h1>Parse JSON Safely</h1>
+    <label for="json">JSON text:</label><br>
+    <textarea id="json" rows="5" cols="48">{"name":"Mina","course":"JavaScript"}</textarea><br>
+    <button id="parse" type="button">Parse JSON</button>
+    <pre id="result" aria-live="polite"></pre>
+    <script>
+        document.querySelector("#parse").addEventListener("click", () => {
+            const output = document.querySelector("#result");
+            try {
+                const data = JSON.parse(document.querySelector("#json").value);
+                output.textContent = `Parsed successfully:\n${JSON.stringify(data, null, 2)}`;
+            } catch (error) {
+                output.textContent = `Invalid JSON: ${error.message}`;
+            } finally {
+                console.log("JSON parsing attempt finished.");
+            }
+        });
+    </script>
+</body>
+</html>

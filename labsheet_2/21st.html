@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessible Registration Form</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;padding:36px 16px;background:#eef3f0;color:#20383d;font:15px/1.5 "Segoe UI",sans-serif}main{max-width:620px;margin:auto;padding:30px;background:white;border:1px solid #d8e2dc;border-radius:8px}h1{margin:0;color:#17685e;font:600 30px Georgia,serif}.field{margin:17px 0}.field>label,legend{display:block;margin-bottom:6px;font-weight:700}input[type=text],input[type=email],input[type=password],select,textarea{width:100%;padding:11px;border:1px solid #bdcbc5;border-radius:4px;font:inherit}fieldset{margin:17px 0;padding:12px 16px;border:1px solid #ccd8d1;border-radius:4px}fieldset label{display:inline-flex;align-items:center;gap:7px;margin:5px 18px 5px 0}input[type=radio],input[type=checkbox]{accent-color:#17685e}textarea{resize:vertical}button{padding:11px 18px;border:0;border-radius:4px;background:#17685e;color:white;font-weight:700}
+  </style>
+</head>
+<body>
+  <main><h1>Accessible registration</h1><form action="#" method="get"><div class="field"><label for="accessible-name">Full name</label><input id="accessible-name" name="name" type="text" required></div><div class="field"><label for="accessible-email">Email</label><input id="accessible-email" name="email" type="email" required></div><div class="field"><label for="accessible-password">Password</label><input id="accessible-password" name="password" type="password" required></div><fieldset><legend>Study format</legend><label for="format-online"><input id="format-online" name="format" type="radio" value="online" required> Online</label><label for="format-campus"><input id="format-campus" name="format" type="radio" value="campus"> Campus</label></fieldset><fieldset><legend>Interests</legend><label for="interest-design"><input id="interest-design" name="interest" type="checkbox" value="design"> Design</label><label for="interest-code"><input id="interest-code" name="interest" type="checkbox" value="coding"> Coding</label></fieldset><div class="field"><label for="accessible-course">Course</label><select id="accessible-course" name="course"><option>Web development</option><option>Design</option><option>Data science</option></select></div><div class="field"><label for="accessible-note">Additional details</label><textarea id="accessible-note" name="details" rows="3"></textarea></div><button type="submit">Register</button></form></main>
+</body>
+</html>

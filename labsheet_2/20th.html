@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-step Onboarding</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;padding:38px 16px;background:#eef3ef;color:#233b3d;font:15px "Segoe UI",sans-serif}main{max-width:580px;margin:auto;padding:30px;background:white;border-radius:8px}h1{margin:0;color:#17685e;font:600 30px Georgia,serif}.progress{margin:10px 0 24px;color:#667a75}.step{display:none}.step.active{display:block}.step label{display:block;margin:16px 0 6px;font-weight:700}.step input,.step select{width:100%;padding:11px;border:1px solid #bdcbc5;border-radius:4px;font:inherit}.actions{display:flex;justify-content:space-between;margin-top:24px}button{padding:11px 18px;border:0;border-radius:4px;background:#17685e;color:white;font-weight:700;cursor:pointer}button[hidden]{display:none}
+  </style>
+</head>
+<body>
+  <main><h1>Set up your account</h1><p class="progress" id="step-status" aria-live="polite">Step 1 of 3</p><form id="onboarding" action="#" method="get"><section class="step active" aria-label="Basic details"><label for="onboard-name">Your name</label><input id="onboard-name" name="name" autocomplete="name" required></section><section class="step" aria-label="Contact details"><label for="onboard-email">Email address</label><input id="onboard-email" name="email" type="email" autocomplete="email" required></section><section class="step" aria-label="Preferences"><label for="onboard-topic">What do you want to learn?</label><select id="onboard-topic" name="topic" required><option value="">Choose a topic</option><option>Web development</option><option>Design</option><option>Data science</option></select></section><div class="actions"><button id="previous" type="button" hidden>Back</button><button id="next" type="button">Next</button><button id="finish" type="submit" hidden>Finish</button></div></form></main>
+  <script>
+    const form = document.querySelector("#onboarding");
+    const steps = [...form.querySelectorAll(".step")];
+    const previous = document.querySelector("#previous");
+    const next = document.querySelector("#next");
+    const finish = document.querySelector("#finish");
+    const status = document.querySelector("#step-status");
+    let activeStep = 0;
+    function showStep(index) {
+      activeStep = index;
+      steps.forEach((step, position) => {
+        step.classList.toggle("active", position === activeStep);
+        step.setAttribute("aria-hidden", String(position !== activeStep));
+      });
+      status.textContent = `Step ${activeStep + 1} of ${steps.length}`;
+      previous.hidden = activeStep === 0;
+      next.hidden = activeStep === steps.length - 1;
+      finish.hidden = activeStep !== steps.length - 1;
+      steps[activeStep].querySelector("input, select").focus();
+    }
+    next.addEventListener("click", () => {
+      const currentField = steps[activeStep].querySelector("input, select");
+      if (currentField.reportValidity()) showStep(activeStep + 1);
+    });
+    previous.addEventListener("click", () => showStep(activeStep - 1));
+  </script>
+</body>
+</html>

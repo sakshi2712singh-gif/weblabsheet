@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+</head>
+<body>
+    <h1>Todo List</h1>
+    <form id="taskForm">
+        <label for="task">New task:</label>
+        <input id="task" type="text" maxlength="120" required>
+        <button type="submit">Add task</button>
+    </form>
+    <ul id="tasks"></ul>
+    <script>
+        const form = document.querySelector("#taskForm");
+        form.addEventListener("submit", event => {
+            event.preventDefault();
+            const input = document.querySelector("#task");
+            const text = input.value.trim();
+            if (!text) return;
+            const item = document.createElement("li");
+            const label = document.createElement("span");
+            label.textContent = text;
+            const remove = document.createElement("button");
+            remove.type = "button";
+            remove.textContent = "Delete";
+            remove.setAttribute("aria-label", `Delete ${text}`);
+            remove.addEventListener("click", () => item.remove());
+            item.append(label, " ", remove);
+            document.querySelector("#tasks").appendChild(item);
+            input.value = "";
+            input.focus();
+        });
+    </script>
+</body>
+</html>

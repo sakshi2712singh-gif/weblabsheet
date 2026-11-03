@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Object and this</title>
+</head>
+<body>
+    <h1>Student Object</h1>
+    <p id="student"></p>
+    <script>
+        const student = {
+            name: "sakshi singh",
+            rollNumber: 24,
+            course: "Web Development",
+            introduce() {
+                return `My name is ${this.name}. My roll number is ${this.rollNumber}, and I study ${this.course}.`;
+            }
+        };
+        document.querySelector("#student").textContent = student.introduce();
+    </script>
+</body>
+</html>

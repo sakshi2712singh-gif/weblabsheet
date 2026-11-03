@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback and Async Behavior</title>
+</head>
+<body>
+    <h1>Callback and Asynchronous Behavior</h1>
+    <button id="start" type="button">Run asynchronous example</button>
+    <ol id="log" aria-live="polite"></ol>
+    <script>
+        const log = document.querySelector("#log");
+        function addMessage(message) {
+            const item = document.createElement("li");
+            item.textContent = message;
+            log.appendChild(item);
+        }
+        function doLater(callback) {
+            setTimeout(() => callback("This message arrived after 1 second."), 1000);
+        }
+        document.querySelector("#start").addEventListener("click", () => {
+            log.replaceChildren();
+            addMessage("Started synchronously.");
+            doLater(message => addMessage(message));
+            addMessage("JavaScript continues while waiting.");
+        });
+    </script>
+</body>
+</html>

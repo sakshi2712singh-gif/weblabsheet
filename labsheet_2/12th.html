@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Checkout</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;padding:36px 16px;background:#f2f4ef;color:#253a3b;font:15px "Segoe UI",sans-serif}.checkout{max-width:760px;margin:auto;padding:30px;background:white;border:1px solid #d9e1db;border-radius:8px}h1{margin:0;color:#17685e;font:600 30px Georgia,serif}.summary{margin:8px 0 26px;color:#617572}.fields{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px}.field label{display:block;margin-bottom:6px;font-weight:700}.field input{width:100%;min-height:44px;padding:10px;border:1px solid #b9c7c1;border-radius:4px;font:inherit}.wide{grid-column:1/-1}button{margin-top:24px;padding:12px 18px;border:0;border-radius:4px;background:#17685e;color:white;font-weight:700}@media(max-width:560px){body{padding:20px 12px}.checkout{padding:22px 18px}.fields{grid-template-columns:1fr}.wide{grid-column:auto}}
+  </style>
+</head>
+<body>
+  <main class="checkout"><h1>Checkout</h1><p class="summary">Workshop pass · $48.00</p><form action="#" method="get"><div class="fields"><div class="field wide"><label for="pay-name">Name on card</label><input id="pay-name" name="name" autocomplete="cc-name" required></div><div class="field wide"><label for="pay-number">Card number</label><input id="pay-number" name="card-number" inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456" required></div><div class="field"><label for="pay-expiry">Expiry date</label><input id="pay-expiry" name="expiry" autocomplete="cc-exp" placeholder="MM / YY" required></div><div class="field"><label for="pay-cvc">Security code</label><input id="pay-cvc" name="cvc" inputmode="numeric" autocomplete="cc-csc" required></div></div><button type="submit">Continue to payment</button></form></main>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox Page Layout</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#f2f5f1;color:#21383c;font:16px/1.5 "Segoe UI",sans-serif}.site-header{padding:18px 28px;background:#193e46;color:white}.layout{display:flex;min-height:calc(100vh - 62px)}nav{flex:0 0 220px;padding:28px 20px;background:#e2ece5}nav a{display:block;padding:10px 0;color:#17685e;text-decoration:none}main{flex:1;max-width:900px;padding:38px 44px}.eyebrow{color:#b45d3c;font-size:12px;font-weight:700;text-transform:uppercase}h1{font:600 38px Georgia,serif;color:#17685e}article{max-width:620px;padding:20px 0;border-top:1px solid #d4dfd9}@media(max-width:620px){.layout{display:block}nav{display:flex;gap:18px;padding:12px 20px}nav a{padding:4px 0}.site-header{padding:16px 20px}main{padding:28px 20px}h1{font-size:32px}}
+  </style>
+</head>
+<body>
+  <header class="site-header"><strong>FIELDNOTES</strong> &nbsp; Learning Portal</header>
+  <div class="layout">
+    <nav aria-label="Main navigation"><a href="#overview">Overview</a><a href="#courses">Courses</a><a href="#contact">Contact</a></nav>
+    <main id="overview"><p class="eyebrow">A place to begin</p><h1>Learn by making.</h1><article id="courses"><h2>Practical courses</h2><p>Build useful skills through focused lessons in design, web development, and data.</p></article><article id="contact"><h2>Get in touch</h2><p>Email hello@example.test for course information.</p></article></main>
+  </div>
+</body>
+</html>

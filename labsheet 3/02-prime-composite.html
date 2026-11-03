@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime or Composite</title>
+</head>
+<body>
+    <h1>Prime or Composite</h1>
+    <label for="number">Whole number:</label>
+    <input id="number" type="number" step="1" value="13">
+    <button id="check" type="button">Check</button>
+    <div id="result" aria-live="polite"></div>
+    <script>
+        function classifyNumber(value) {
+            if (!Number.isInteger(value) || value < 2) return "Enter an integer greater than 1.";
+            for (let divisor = 2; divisor <= Math.sqrt(value); divisor++) {
+                if (value % divisor === 0) return `${value} is composite.`;
+            }
+            return `${value} is prime.`;
+        }
+        document.querySelector("#check").addEventListener("click", () => {
+            document.querySelector("#result").textContent = classifyNumber(Number(document.querySelector("#number").value));
+        });
+    </script>
+</body>
+</html>

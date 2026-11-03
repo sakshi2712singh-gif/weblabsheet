@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Events</title>
+    <style>
+        #hoverBox { max-width: 440px; padding: 48px 20px; text-align: center; background: #e8eef3; transition: background-color 180ms ease; }
+        #hoverBox.active { background: #a9dfbf; }
+    </style>
+</head>
+<body>
+    <h1>Mouseover and Mouseout</h1>
+    <div id="hoverBox">Move your pointer over this area.</div>
+    <script>
+        const box = document.querySelector("#hoverBox");
+        box.addEventListener("mouseover", () => box.classList.add("active"));
+        box.addEventListener("mouseout", () => box.classList.remove("active"));
+    </script>
+</body>
+</html>

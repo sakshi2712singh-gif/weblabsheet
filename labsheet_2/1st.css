@@ -1,0 +1,14 @@
+* { box-sizing: border-box; }
+body { margin: 0; padding: 36px 16px; background: #eef3f2; color: #19343b; font-family: "Segoe UI", sans-serif; }
+.form-card { max-width: 520px; margin: 0 auto; padding: 30px; border: 1px solid #d4e0dd; border-radius: 8px; background: #fff; box-shadow: 0 14px 36px rgb(26 53 59 / 10%); }
+h1 { margin: 0 0 24px; color: #17685e; font-family: Georgia, serif; font-size: 30px; }
+form > label { display: block; margin: 16px 0 6px; font-size: 14px; font-weight: 700; }
+input[type="text"], input[type="password"], select, textarea { width: 100%; padding: 11px 12px; border: 1px solid #afc2bf; border-radius: 4px; background: #fcfefd; color: inherit; font: inherit; }
+input:focus, select:focus, textarea:focus { outline: 3px solid rgb(36 139 119 / 18%); border-color: #248b77; }
+fieldset { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 18px 0; padding: 10px 12px 12px; border: 1px solid #d4e0dd; border-radius: 4px; }
+legend { padding: 0 5px; color: #17685e; font-size: 13px; font-weight: 700; }
+.choice { display: inline-flex; align-items: center; gap: 7px; font-size: 14px; }
+input[type="radio"], input[type="checkbox"] { accent-color: #167b6b; }
+textarea { resize: vertical; }
+button { width: 100%; margin-top: 20px; padding: 12px; border: 0; border-radius: 4px; background: #17685e; color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+button:hover { background: #10574f; }

@@ -1,0 +1,12 @@
+Question 3: Restructure the project into an MVC-style folder layout (models, views, controllers, public, config) using PHP.
+
+This solution is organized as:
+
+    config/       bootstrap.php, schema.sql
+    controllers/  AuthController.php, ProductController.php
+    models/       05_Database.php
+    views/        layouts/, auth/, products/, errors/
+    public/       index.php, .htaccess, 08_api_fetch.js
+    storage/      uploads/ (outside the public web root)
+
+The numbered answer files at this project root document the corresponding exercises. Configure Apache's document root to `public/`; the setup guide shows the local PHP development-server command.

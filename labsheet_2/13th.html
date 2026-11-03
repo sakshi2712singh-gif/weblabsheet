@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Form Controls</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;padding:40px 16px;background:#f1f4ef;color:#21383a;font:16px/1.5 "Segoe UI",sans-serif}main{max-width:560px;margin:auto;padding:30px;background:white;border-radius:8px}h1{margin:0;color:#17685e;font:600 30px Georgia,serif}fieldset{margin:22px 0;padding:18px;border:1px solid #c7d5ce;border-radius:5px}legend{padding:0 7px;font-weight:700}.choice{display:flex;align-items:center;gap:11px;margin:12px 0;cursor:pointer}.choice input{position:absolute;width:1px;height:1px;opacity:0}.custom-control{position:relative;display:inline-grid;width:22px;height:22px;flex:none;place-items:center;border:1.5px solid #718680;border-radius:4px;background:#fff;transition:background .15s,border-color .15s}.custom-control::before{position:absolute;inset:4px;content:"";border-radius:2px;background:transparent}.custom-control::after{position:absolute;width:9px;height:5px;content:"";border-bottom:2px solid transparent;border-left:2px solid transparent;transform:rotate(-45deg) translate(1px,-1px)}.choice input[type=radio]+.custom-control{border-radius:50%}.choice input[type=radio]+.custom-control::before{border-radius:50%}.choice input:checked~.custom-control{border-color:#17685e;background:#17685e}.choice input[type=checkbox]:checked~.custom-control::after{border-color:#fff}.choice input[type=radio]:checked~.custom-control::before{background:#fff}.choice input:focus-visible~.custom-control{outline:3px solid #d3e9df;outline-offset:2px}
+  </style>
+</head>
+<body>
+  <main><h1>Preferences</h1><form action="#" method="get"><fieldset><legend>Updates</legend><label class="choice"><input type="checkbox" name="updates" value="email"><span class="custom-control" aria-hidden="true"></span><span>Email me about new courses</span></label><label class="choice"><input type="checkbox" name="updates" value="events"><span class="custom-control" aria-hidden="true"></span><span>Send event announcements</span></label></fieldset><fieldset><legend>Preferred contact</legend><label class="choice"><input type="radio" name="contact" value="email" required><span class="custom-control" aria-hidden="true"></span><span>Email</span></label><label class="choice"><input type="radio" name="contact" value="phone"><span class="custom-control" aria-hidden="true"></span><span>Phone</span></label></fieldset><button type="submit">Save preferences</button></form></main>
+</body>
+</html>

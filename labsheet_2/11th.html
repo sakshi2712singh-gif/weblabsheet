@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form CSS Cascade</title>
+  <link rel="stylesheet" href="11th.css">
+  <style>
+    .contact-card { padding: 28px; border-top: 4px solid #247c69; }
+    .contact-card button { background: #a44f35; }
+  </style>
+</head>
+<body>
+  <main class="contact-card">
+    <h1 style="color: #1f5253;">Contact us</h1>
+    <p class="cascade-note">This page combines external, internal, and inline CSS. The heading's inline color wins over the external rule.</p>
+    <form action="#" method="get">
+      <label for="contact-name">Name</label><input id="contact-name" name="name" required>
+      <label for="contact-email">Email</label><input id="contact-email" name="email" type="email" required>
+      <label for="contact-message">Message</label><textarea id="contact-message" name="message" rows="4" required></textarea>
+      <button type="submit">Send message</button>
+    </form>
+  </main>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grade</title>
+</head>
+<body>
+    <h1>Student Grade</h1>
+    <label for="marks">Marks (0-100):</label>
+    <input id="marks" type="number" min="0" max="100" value="82">
+    <button id="grade" type="button">Find grade</button>
+    <p id="result" aria-live="polite"></p>
+    <script>
+        document.querySelector("#grade").addEventListener("click", () => {
+            const marks = Number(document.querySelector("#marks").value);
+            const result = document.querySelector("#result");
+            if (!Number.isFinite(marks) || marks < 0 || marks > 100) {
+                result.textContent = "Enter marks from 0 to 100.";
+                return;
+            }
+            let letter;
+            if (marks >= 90) letter = "A";
+            else if (marks >= 80) letter = "B";
+            else if (marks >= 70) letter = "C";
+            else if (marks >= 60) letter = "D";
+            else letter = "F";
+            let message;
+            switch (letter) {
+                case "A": message = "Excellent"; break;
+                case "B": message = "Very good"; break;
+                case "C": message = "Good"; break;
+                case "D": message = "Passed"; break;
+                default: message = "Needs improvement";
+            }
+            result.textContent = `Grade ${letter}: ${message}`;
+        });
+    </script>
+</body>
+</html>

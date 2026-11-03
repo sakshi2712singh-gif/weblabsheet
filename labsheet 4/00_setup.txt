@@ -1,0 +1,69 @@
+MCA108P - Assignment 4: Apache, PHP and MySQL
+
+Requirements
+------------
+Apache 2.4, PHP 8.0 or later, MySQL 8.0 or later, and PHP's PDO MySQL driver
+and fileinfo extension.
+On Windows, XAMPP is one convenient local development stack. Keep this folder
+inside the Apache document root, or configure the virtual host in question 10 to
+point to this folder. Do not expose a development server to the public internet.
+
+Initial setup
+-------------
+1. Start Apache and MySQL from your local stack's control panel.
+2. Visit http://localhost/ and confirm Apache serves its default page.
+3. In the php.ini loaded by Apache, set:
+     error_reporting = E_ALL
+     display_errors = On
+     log_errors = On
+   Enable pdo_mysql, mysqli, mbstring, curl, and fileinfo if they are commented
+   out (for example, extension=pdo_mysql). Restart Apache after editing php.ini.
+   display_errors is for this local exercise only, not a production server.
+4. Open a MySQL command prompt as an administrator and run 03_create_database.sql.
+5. Before creating the restricted account, temporarily configure Apache's
+   COLLEGE_DB_USER and COLLEGE_DB_PASSWORD with an administrator account and set
+   COLLEGE_DB_SETUP=1. Visit 05_create_students.php, 19_transaction.php, and
+   21_password_hash.php once so those scripts can create their tables. Then unset
+   COLLEGE_DB_SETUP.
+6. Create the restricted application account using 14_create_app_user.sql. Replace
+   the example password before running it; never commit a real password.
+7. Configure these environment variables for the Apache process:
+     COLLEGE_DB_HOST=127.0.0.1
+     COLLEGE_DB_PORT=3306
+     COLLEGE_DB_USER=college_app
+     COLLEGE_DB_PASSWORD=the-password-you-set
+   Restart Apache after setting them. Service environments do not always inherit
+   variables from a terminal; use your Apache service's environment configuration
+   if necessary. Do not put credentials in a public PHP file.
+8. Use the scripts from localhost. Questions 12 and 15 use the users table created
+   by 21_password_hash.php. Register an account there before signing in.
+
+Files and safe-use notes
+------------------------
+00_database.php is shared by the PHP database exercises. Run PHP pages through
+Apache (http://localhost/...), not by opening the files directly in a browser.
+The database helper intentionally reports missing settings and connection errors.
+
+Question 9 is specifically a GET-based deletion exercise. It requires a separate
+administrator account in COLLEGE_ADMIN_DB_USER and COLLEGE_ADMIN_DB_PASSWORD,
+because question 14's restricted application account must not have DELETE rights.
+The page asks for confirmation before deleting. GET is not appropriate for
+deletions in a real application; use POST, authentication, and CSRF protection.
+
+Question 2's phpinfo page exposes configuration details. Use it only on localhost
+and remove or disable it when finished. display_errors is useful for this local
+exercise only; disable it on any production server and keep error_reporting=E_ALL.
+
+Virtual host setup, Windows
+---------------------------
+Edit Apache's httpd-vhosts.conf (often under apache/conf/extra in XAMPP) and
+adapt the paths in 10_virtual_host.conf. Ensure httpd.conf includes the vhosts
+file, then add this line to the Windows hosts file as Administrator:
+  127.0.0.1 collegeweb.local
+Restart Apache and visit http://collegeweb.local/.
+
+For question 18, request 18_log_test.php and inspect Apache's configured access
+log plus the PHP error log (commonly apache/logs/access.log and apache/logs/error.log).
+Make several requests to compare response times, and request a nonexistent local
+URL to produce an Apache 404 entry. Log locations vary by installation. Never
+enable public error display to test production logs.

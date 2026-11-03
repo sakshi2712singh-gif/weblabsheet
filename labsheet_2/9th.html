@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Survey</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;padding:38px 16px;background:#f0f4ef;color:#213a3c;font:15px/1.5 "Segoe UI",sans-serif}main{max-width:620px;margin:auto;padding:30px;background:white;border-radius:8px}h1{margin:0;color:#17685e;font:600 30px Georgia,serif}p{color:#657875}fieldset{margin:22px 0;padding:18px 20px 20px;border:1px solid #b9cbc3;border-radius:5px}legend{padding:0 8px;color:#17685e;font-weight:700}label{display:block;margin:11px 0}input[type=radio],input[type=checkbox]{margin-right:8px;accent-color:#17685e}textarea{width:100%;min-height:90px;padding:10px;border:1px solid #b9cbc3;border-radius:4px;font:inherit}button{padding:11px 18px;border:0;border-radius:4px;background:#17685e;color:white;font-weight:700}
+  </style>
+</head>
+<body>
+  <main><h1>Course survey</h1><p>Tell us how the workshop went.</p><form action="#" method="get"><fieldset><legend>How would you rate the course?</legend><label><input type="radio" name="rating" value="excellent" required> Excellent</label><label><input type="radio" name="rating" value="good"> Good</label><label><input type="radio" name="rating" value="fair"> Fair</label></fieldset><fieldset><legend>Which topics were useful?</legend><label><input type="checkbox" name="topic" value="practice"> Hands-on practice</label><label><input type="checkbox" name="topic" value="examples"> Examples</label><label><input type="checkbox" name="topic" value="discussion"> Group discussion</label></fieldset><fieldset><legend>One suggestion</legend><label for="suggestion">What should we improve?</label><textarea id="suggestion" name="suggestion"></textarea></fieldset><button type="submit">Submit survey</button></form></main>
+</body>
+</html>

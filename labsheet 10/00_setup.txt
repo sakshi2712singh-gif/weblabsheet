@@ -1,0 +1,13 @@
+LAB SHEET 10 - PHP MVC, API, AND SECURITY
+
+Requirements: PHP 8.1+ with PDO MySQL and Fileinfo, MySQL 8+, Apache with mod_rewrite for clean URLs, and Composer for email.
+
+1. Import config/schema.sql into MySQL. Create an application user using 20_db_user.sql, then configure WEBAPP_DSN, WEBAPP_DB_USER, and WEBAPP_DB_PASSWORD in the server environment. Do not use the MySQL root account.
+2. From this folder, install PHPMailer with `composer install`. Configure SMTP_HOST, SMTP_PORT (usually 587), SMTP_USER, SMTP_PASSWORD, SMTP_FROM, and APP_BASE_URL as environment variables. Never put secrets in source control.
+3. Configure Apache's document root to this project's public/ directory. Enable mod_rewrite, mod_ssl, and AllowOverride All. See 17_clean_urls.txt, 18_ssl_setup.txt, and 19_virtual_host.txt. Do not edit the system hosts file or Apache configuration without administrator permission.
+4. For local HTTP-only code testing without Apache or email, run `php -S 127.0.0.1:8000 -t public public/router.php`. Browse to http://127.0.0.1:8000/. The API GET endpoint is /api/products; token creation is POST /api/token with a verified account's email/password. API write requests use `Authorization: Bearer <token>`.
+5. To register and log in, SMTP must be configured so that the email confirmation link can be delivered. Password reset links are single-use and expire after one hour. This coursework app intentionally does not expose a debug token in the response.
+6. To allow an account to create/update/delete products through the API, verify its email, then grant the administrator role using an administrator connection: `UPDATE webapp_db.users SET role = 'admin' WHERE email = 'you@example.com';`. Regular verified accounts may use read-only API requests.
+7. Run `php test_self.php` for database-independent checks. Run PHP lint on the `.php` files. Database, SMTP, Apache HTTPS, and OS-level virtual-host changes require local services/configuration and are not performed by the self-test.
+
+The public/ folder is the only web document root. Uploaded images are stored under storage/uploads outside it and are not served directly. The example is educational; review the deployment and operational security requirements before public use.

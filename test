@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Information</title>
+</head>
+<body>
+
+    <h2>Student Information Table</h2>
+
+    <table border="1">
+        <tr>
+            <th>Roll No.</th>
+            <th>Name</th>
+            <th>Course</th>
+        </tr>
+        <tr>
+            <td>101</td>
+            <td>Sakshi</td>
+            <td>MCA</td>
+        </tr>
+        <tr>
+            <td>102</td>
+            <td>Rahul</td>
+            <td>BCA</td>
+        </tr>
+    </table>
+
+</body>
+</html>
+

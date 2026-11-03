@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel Counter</title>
+</head>
+<body>
+    <h1>Count Vowels</h1>
+    <label for="paragraph">Enter text:</label><br>
+    <textarea id="paragraph" rows="5" cols="48">JavaScript makes web pages interactive.</textarea><br>
+    <button id="count" type="button">Count vowels</button>
+    <p id="result" aria-live="polite"></p>
+    <script>
+        function countVowels(text) {
+            return (text.match(/[aeiou]/gi) || []).length;
+        }
+        document.querySelector("#count").addEventListener("click", () => {
+            const total = countVowels(document.querySelector("#paragraph").value);
+            document.querySelector("#result").textContent = `Vowel count: ${total}`;
+        });
+    </script>
+</body>
+</html>

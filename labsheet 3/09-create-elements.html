@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create DOM Elements</title>
+</head>
+<body>
+    <h1>Add a List Item</h1>
+    <label for="itemText">New item:</label>
+    <input id="itemText" type="text" maxlength="120">
+    <button id="add" type="button">Add item</button>
+    <ul id="items"></ul>
+    <script>
+        const input = document.querySelector("#itemText");
+        document.querySelector("#add").addEventListener("click", () => {
+            const text = input.value.trim();
+            if (!text) return;
+            const item = document.createElement("li");
+            item.textContent = text;
+            document.querySelector("#items").appendChild(item);
+            input.value = "";
+            input.focus();
+        });
+    </script>
+</body>
+</html>

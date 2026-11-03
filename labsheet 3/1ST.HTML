@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Arithmetic Operations</title>
+</head>
+<body>
+	<h1>Arithmetic Operations</h1>
+	<p>Enter two numbers in the prompt dialogs to calculate their sum, difference, product, and quotient.</p>
+	<button id="calculate" type="button">Enter numbers</button>
+	<pre id="result" aria-live="polite"></pre>
+	<script>
+		document.querySelector("#calculate").addEventListener("click", () => {
+			const firstInput = prompt("Enter the first number:");
+			const secondInput = prompt("Enter the second number:");
+			if (firstInput === null || secondInput === null || !firstInput.trim() || !secondInput.trim()) return;
+			const first = Number(firstInput);
+			const second = Number(secondInput);
+			if (!Number.isFinite(first) || !Number.isFinite(second)) {
+				alert("Please enter valid numbers.");
+				return;
+}
+			const results = [
+				`Addition: ${first + second}`,
+				`Subtraction: ${first - second}`,
+				`Multiplication: ${first * second}`,
+		    		`Division: ${second === 0 ? "undefined (division by zero)" : first / second}`
+			].join("\n");
+			console.log(results);
+			document.querySelector("#result").textContent = results;
+			alert(results);
+		});
+	</script>
+</body>
+</html>
+ 

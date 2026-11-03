@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 320px; margin: 36px auto; }
+        #display { box-sizing: border-box; width: 100%; margin-bottom: 8px; padding: 12px; font-size: 1.4rem; }
+        .keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+        button { padding: 12px 6px; font-size: 1rem; }
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <input id="display" aria-label="Calculator display" readonly>
+    <div class="keys" id="keys">
+        <button data-value="7">7</button><button data-value="8">8</button><button data-value="9">9</button><button data-value="/">÷</button>
+        <button data-value="4">4</button><button data-value="5">5</button><button data-value="6">6</button><button data-value="*">×</button>
+        <button data-value="1">1</button><button data-value="2">2</button><button data-value="3">3</button><button data-value="-">−</button>
+        <button data-value="0">0</button><button data-value=".">.</button><button data-action="clear">C</button><button data-value="+">+</button>
+        <button data-action="equals" style="grid-column: span 4">=</button>
+    </div>
+    <p id="message" aria-live="polite"></p>
+    <script>
+        const display = document.querySelector("#display");
+        document.querySelector("#keys").addEventListener("click", event => {
+            const button = event.target.closest("button");
+            if (!button) return;
+            if (button.dataset.action === "clear") display.value = "";
+            else if (button.dataset.action === "equals") {
+                try {
+                    if (!/^[0-9+*/.() -]+$/.test(display.value)) throw new Error();
+                    const answer = Function(`"use strict"; return (${display.value})`)();
+                    if (!Number.isFinite(answer)) throw new Error();
+                    display.value = answer;
+                    document.querySelector("#message").textContent = "";
+                } catch {
+                    document.querySelector("#message").textContent = "Enter a valid arithmetic expression.";
+                }
+            } else display.value += button.dataset.value;
+        });
+    </script>
+</body>
+</html>

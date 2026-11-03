@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci with Loops</title>
+</head>
+<body>
+    <h1>Fibonacci Series with Loops</h1>
+    <label for="terms">Number of terms (1-50):</label>
+    <input id="terms" type="number" min="1" max="50" value="10">
+    <label for="loop">Loop type:</label>
+    <select id="loop"><option>for</option><option>while</option><option>do-while</option></select>
+    <button id="generate" type="button">Generate</button>
+    <p id="result" aria-live="polite"></p>
+    <script>
+        function fibonacci(count, loopType) {
+            const series = [];
+            let previous = 0;
+            let current = 1;
+            let index = 0;
+            const addTerm = () => { series.push(previous); [previous, current] = [current, previous + current]; index++; };
+            if (loopType === "for") {
+                for (; index < count;) addTerm();
+            } else if (loopType === "while") {
+                while (index < count) addTerm();
+            } else {
+                do { addTerm(); } while (index < count);
+            }
+            return series.join(", ");
+        }
+        document.querySelector("#generate").addEventListener("click", () => {
+            const count = Number(document.querySelector("#terms").value);
+            document.querySelector("#result").textContent = Number.isInteger(count) && count >= 1 && count <= 50
+                ? fibonacci(count, document.querySelector("#loop").value)
+                : "Enter a whole number from 1 to 50.";
+        });
+    </script>
+</body>
+</html>

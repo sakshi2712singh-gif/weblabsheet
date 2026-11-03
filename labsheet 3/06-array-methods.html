@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods</title>
+</head>
+<body>
+    <h1>Array Manipulation</h1>
+    <label for="item">Number to add:</label>
+    <input id="item" type="number" value="6">
+    <button id="add" type="button">Add (push)</button>
+    <button id="remove" type="button">Remove last (pop)</button>
+    <button id="sort" type="button">Sort</button>
+    <button id="transform" type="button">Show map and filter</button>
+    <p id="array"></p>
+    <p id="details" aria-live="polite"></p>
+    <script>
+        const numbers = [8, 3, 10, 1, 5];
+        const showArray = () => { document.querySelector("#array").textContent = `Array: [${numbers.join(", ")}]`; };
+        showArray();
+        document.querySelector("#add").addEventListener("click", () => {
+            const value = Number(document.querySelector("#item").value);
+            if (Number.isFinite(value)) numbers.push(value);
+            showArray();
+        });
+        document.querySelector("#remove").addEventListener("click", () => { numbers.pop(); showArray(); });
+        document.querySelector("#sort").addEventListener("click", () => { numbers.sort((a, b) => a - b); showArray(); });
+        document.querySelector("#transform").addEventListener("click", () => {
+            const doubled = numbers.map(value => value * 2);
+            const even = numbers.filter(value => value % 2 === 0);
+            document.querySelector("#details").textContent = `map (doubled): [${doubled.join(", ")}] | filter (even): [${even.join(", ")}]`;
+        });
+    </script>
+</body>
+</html>

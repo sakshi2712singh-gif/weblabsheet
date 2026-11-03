@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Form Controls</title>
+	<link rel="stylesheet" href="1st.css">
+</head>
+<body>
+	<main class="form-card">
+		<h1>Student Profile</h1>
+		<form action="#" method="get">
+			<label for="full-name">Full name</label>
+			<input id="full-name" name="full-name" type="text" autocomplete="name" required>
+
+			<label for="password">Password</label>
+			<input id="password" name="password" type="password" required>
+
+			<fieldset>
+				<legend>Study mode</legend>
+				<label class="choice"><input type="radio" name="study-mode" value="online" required> Online</label>
+				<label class="choice"><input type="radio" name="study-mode" value="campus"> Campus</label>
+			</fieldset>
+
+			<fieldset>
+				<legend>Interests</legend>
+				<label class="choice"><input type="checkbox" name="interest" value="design"> Design</label>
+				<label class="choice"><input type="checkbox" name="interest" value="coding"> Coding</label>
+			</fieldset>
+
+			<label for="program">Program</label>
+			<select id="program" name="program" required>
+				<option value="">Choose a program</option>
+				<option>Web Development</option>
+				<option>Data Science</option>
+				<option>Digital Design</option>
+			</select>
+
+			<label for="about">A little about you</label>
+			<textarea id="about" name="about" rows="4"></textarea>
+
+			<button type="submit">Send registration</button>
+		</form>
+	</main>
+</body>
+</html>
